@@ -59,7 +59,7 @@ public void checkValidForPlayerX(int row, int column) {
 		System.out.println("Player X: Your number entries are valid!");
 		board[row][column] == 'X';
 	} else {
-		inputPlayerX();
+		inputPlayerO();
 	}
 }
 
