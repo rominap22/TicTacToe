@@ -20,7 +20,7 @@ Scanner s = new Scanner (System.in);
 		do {
 			System.out.println("Enter a row number from (0-2)");
 			row = s.nextInt();
-		} while ((row < 0 || (row > 2));
+		} while ((row < 0 || row > 2));
 		System.out.println("Entered row number is within specified parameters.");
 		do {
 			System.out.println("Enter a row number from (0-2)");
@@ -50,6 +50,8 @@ Scanner s = new Scanner (System.in);
 		System.out.println("- - - - - -");
 		System.out.println(" " + board[2][0] + " |" + " " + board[2][1] + " |" +  " " + board[2][2] + " ");
 			
+		
+		
 		System.out.println("Player O, it is now your turn!");
 		do { 
 			System.out.println("Enter a row number from (0-2)");
