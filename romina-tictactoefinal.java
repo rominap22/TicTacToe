@@ -20,6 +20,7 @@ public static void main (String [] args){
 		myClassObject.inputPlayerX();
 		myClassObject.printBoard(board);
 		checkWin();
+		myClassObject.inputPlayerO();
 		myClassObject.checkValidForPlayer0(row2, column2);
 		checkWin();
 	}
