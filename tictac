@@ -1,0 +1,175 @@
+import java.util.*;
+
+public class TicTac
+{
+   
+    private String[][] board; 
+    static String X = "X";
+    static String O = "O";    
+ 
+    public TicTacToe()
+    {
+        board = new String[3][3]; 
+    }
+
+   
+    public void printBoard()
+    {
+        System.out.println();
+        for (int i = 0; i < board.length; i++) 
+        {
+            for (int j = 0; j < board[i].length; j++) 
+            {
+                if (board[i][j] == null) 
+                {
+                    System.out.print("_");
+                } 
+                else 
+                {
+                    System.out.print(board[i][j]);
+                }
+                if (j < 2) 
+                {
+                    System.out.print("|");
+                } 
+                else 
+                {
+                    System.out.println();
+                } 
+             }
+         }
+         System.out.println();
+    }
+    
+    public Boolean checkWhoWon(String game) 
+    {
+        int gameInRow = 0;
+        int gameD1 = 0;
+        int gameD2 = 0;
+        int[] gameInColumn = new int[board[0].length];  
+        for (int i = 0; i < board.length; i++) 
+        {
+            gameInRow = 0;
+            for (int j = 0; j < board[i].length; j++) 
+            {
+                if (null == board[i][j]) 
+                {
+                    continue;
+                }
+
+                if (board[i][j].equals(game)) 
+                {
+                    playInRow++;
+                    playInColumn[j]++;
+                    if (i == j) 
+                    {
+                        gameD1++;
+                    } 
+                    else if (2 == i + j) 
+                    {
+                        gameD2++;
+                    }
+                }
+                
+            }
+            if (gameInRow == 3) 
+            {
+                return true;
+            }
+        }
+        if (3 == gameD1 || 3 == gameD2) 
+        {
+            return true;
+        }
+        for (int i = 0; i < gameInColumn.length; i++) 
+        {
+            if (gameInColumn[i] == 3) 
+            {
+                return true;
+            }
+        }
+        return false;    
+    }
+    
+    public void makeMove(Scanner scan, String game) 
+    {
+        int r;
+        int c;
+        Boolean goodInput = false;
+        while(!goodInput) 
+        {
+            r = -1;
+            c = -1;
+            System.out.println ("Enter coordinates to play your " + game);
+            if (scan.hasNextInt()) 
+            {  
+                r = scan.nextInt();
+            }
+            if (scan.hasNextInt()) 
+            {
+                c = scan.nextInt();
+            }
+            else 
+            {
+                scan.nextLine();      
+                System.out.println("Both inputs must be integers between 0 and 2.");
+                continue;
+            }
+            
+            if ((r < 0) || (r > 2) || (c < 0) || (c > 2)) 
+            {
+                System.out.println("Both inputs must be integers between 0 and 2.");
+                continue;                
+            } 
+
+            else if (board[r][c] != null )
+            {  
+                System.out.println("That location is occupied");
+                continue; 
+            }
+            else 
+            {
+                board[r][c] = game;
+                return;
+            }
+        }
+        return;
+    }
+    
+    public static void main(String[] args) 
+    {
+        
+        TicTacToe tictac = new TicTacToe();            
+        Scanner scan = new Scanner(System.in);     
+              
+        int moves = 0;
+        System.out.println("Let's play TicTacToe -- X goes first");
+        tictac.printBoard();
+        while (moves < 9) 
+        {
+            tictac.makeMove(scan, tictac.X);
+            moves++;
+            if (moves > 4) 
+            {
+                if (tictac.checkWinner(X)) 
+                {
+                   System.out.println(X + " You Win!!!");
+                   break;
+                }
+            }
+            tictac.printBoard();
+            tictac.makeMove(scan, tictac.O);
+            moves++;
+            if (moves > 4) 
+            {
+                if (tictac.checkWinner(O)) 
+                {
+                   System.out.println(O + " You Win!!!");
+                   break;
+                }
+            }
+            tictac.printBoard();
+            
+        }
+    }
+}
