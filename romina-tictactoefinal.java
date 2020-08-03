@@ -33,7 +33,7 @@ public void printBoard(char[][] board) {
 		System.out.println(" " + board[2][0] + " |" + " " + board[2][1] + " |" +  " " + board[2][2] + " ");
 }
 
-public void inputPlayer() {
+public void inputPlayerX() {
 	do {
 	   System.out.println("Player X: Enter a row number from (0-2)");
 	   row = s.nextInt();
@@ -43,7 +43,7 @@ public void inputPlayer() {
 	  checkValidForPlayerX(row, column);
 }
 
-public void inputPlayer0() {
+public void inputPlayerO() {
 	do {
 	   System.out.println("Player O: Enter a row number from (0-2)");
 	   row2 = s.nextInt();
