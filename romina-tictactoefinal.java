@@ -21,7 +21,8 @@ public static void main (String [] args){
 		myClassObject.printBoard(board);
 		checkWin();
 		myClassObject.inputPlayerO();
-		myClassObject.checkValidForPlayer0(row2, column2);
+		//myClassObject.checkValidForPlayer0(row2, column2);
+		myClassObject.printBoard(board);
 		checkWin();
 	}
 }
@@ -55,16 +56,16 @@ public void inputPlayerO() {
 }
 
 public void checkValidForPlayerX(int row, int column) {
-	if(board[row][column] == ' ' || board[row][column] == 'X' || board[row][column] == 'O')) {
+	if(!(board[row][column] == ' ' || board[row][column] == 'X' || board[row][column] == 'O')) {
 		System.out.println("Player X: Your number entries are valid!");
-		board[row][column] == 'X';
+		board[row][column] = 'X';
 	} else {
-		inputPlayerO();
+		inputPlayerX();
 	}
 }
 
-publicvoid checkValidForPlayerO(int row2, int column2) {
-	if(!(board[row2][column2] == ' ') || board[row][column] == 'X' || board[row2][column2] == '0')){
+public void checkValidForPlayerO(int row2, int column2) {
+	if(!(board[row2][column2] == ' ' || board[row2][column2] == 'X' || board[row2][column2] == '0')){
 		System.out.println("Player O: Your row and column numbers are valid!");
 		board[row2][column2] = 'O';
 	} else {
