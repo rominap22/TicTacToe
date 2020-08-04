@@ -1,6 +1,7 @@
+package com.company;
 import java.util.*;
 import java.util.Scanner;
-public class TicTacToe {
+public class Main {
 	
 static boolean hasWon = false;
 static char[][] board = new char[3][3];
@@ -12,7 +13,7 @@ static int row2 = 0;
 static int column2 = 0;
 	
 public static void main (String [] args){ 
-		TicTacToe myClassObject = new TicTacToe();
+		Main myClassObject = new Main();
 		System.out.println("Welcome to Tic Tac Toe! You are player X, and player O is your opponent.");
 		System.out.println("Please ensure two people are playing.");
 	
